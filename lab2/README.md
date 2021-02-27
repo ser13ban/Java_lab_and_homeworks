@@ -1,4 +1,4 @@
-# Laboratorul 1
+# Laboratorul 2
 
 ## Tema optionala
 
