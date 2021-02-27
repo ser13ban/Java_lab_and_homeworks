@@ -16,6 +16,7 @@ public class Main {
                 costMatrix[i][j] = in.nextInt();
 
         Problem p = new Problem(costMatrix, n);
-        p.Print();
+        Solution s = new Solution(p);
+        System.out.println(s.solve());
     }
 }
