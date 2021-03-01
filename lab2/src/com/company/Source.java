@@ -2,24 +2,19 @@ package com.company;
 
 import java.util.Objects;
 
-public class Source {
+abstract public class Source {
     private String name;
-    private Type type;
     private int supply;
 
-    public Source(String name,Type type, int supply) {
-        this.type = type;
+    public Source(){
+
+    }
+    public  Source(String name, int supply) {
         this.supply = supply;
         this.name = name;
     }
 
-    public Type getType() {
-        return type;
-    }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
 
     public int getSupply() {
         return supply;
@@ -40,7 +35,6 @@ public class Source {
     @Override
     public String toString() {
         return "Source{" +
-                "type=" + type +
                 ", supply=" + supply +
                 '}';
     }
@@ -50,11 +44,11 @@ public class Source {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Source source = (Source) o;
-        return Objects.equals(name, source.name) && type == source.type;
+        return Objects.equals(name, source.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, supply);
+        return Objects.hash(name, supply);
     }
 }

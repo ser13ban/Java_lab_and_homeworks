@@ -23,7 +23,7 @@ public class Problem {
             }
         }
         for (int j = 0; j < n-1; j++){
-            Source aux = new Source("S" + (j+1), new Factory(), cost[j][n-1]);
+            Source aux = new Factory("S" + (j+1), cost[j][n-1]);
             _sources.add(aux);
             //we need to chek if the there are two similar sources (we can't allow that)
             for (int i = 0; i<j;++i){
