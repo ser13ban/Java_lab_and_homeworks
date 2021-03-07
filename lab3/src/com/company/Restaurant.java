@@ -32,10 +32,12 @@ public class Restaurant extends Location implements Visitable, Payable, Classifi
         this.rank = rank;
     }
 
+    @Override
     public void setOpeningTime(LocalTime openingTime) {
         this.openingTime = openingTime;
     }
 
+    @Override
     public void setClosingTime(LocalTime closingTime) {
         this.closingTime = closingTime;
     }

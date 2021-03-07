@@ -5,6 +5,17 @@ import java.time.LocalTime;
 public class Museum extends Location implements Visitable, Payable{
 
     private LocalTime openingTime, closingTime;
+
+    @Override
+    public void setOpeningTime(LocalTime openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    @Override
+    public void setClosingTime(LocalTime closingTime) {
+        this.closingTime = closingTime;
+    }
+
     private double ticketPrice;
 
     @Override
@@ -14,27 +25,19 @@ public class Museum extends Location implements Visitable, Payable{
 
     @Override
     public LocalTime getOpeningTime() {
-        return getOpeningTime();
+        return openingTime;
     }
 
 
 
     @Override
     public LocalTime getClosingTime() {
-        return getClosingTime();
-    }
-
-    ///Setere
-    public void setOpeningTime(LocalTime openingTime) {
-        this.openingTime = openingTime;
-    }
-
-    public void setClosingTime(LocalTime closingTime) {
-        this.closingTime = closingTime;
+        return closingTime;
     }
 
     public void setTicketPrice(double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
+
 
 }

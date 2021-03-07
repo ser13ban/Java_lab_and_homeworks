@@ -1,5 +1,7 @@
 package com.company;
 
+import java.sql.SQLOutput;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,16 +10,19 @@ public class Main {
     public static void main(String[] args) {
 
         Hotel v1 = new Hotel();
-        v1.setName("Victoria");
+        v1.setName("Hotel Victoria");
         Museum v2 = new Museum();
-        v2.setName("A");
+        v2.setOpeningTime(LocalTime.of(9,30,0));
+        v2.setClosingTime(LocalTime.of(20,0,0));
+        v2.setName("Museul A");
         Museum v3 = new Museum();
-        v3.setName("B");
+        v3.setName("Museul B");
         Church v4 = new Church();
-        v4.setName("A");
+        v4.setName("Biserica A");
         Church v5 = new Church();
-        v5.setName("B");
+        v5.setName("Biserica B");
         Restaurant v6 = new Restaurant();
+        v6.setName("Restaurant A");
 
         v1.setCost(v2,10);
         v1.setCost(v3,50);
@@ -31,5 +36,18 @@ public class Main {
         v5.setCost(v6,30);
         v5.setCost(v6,20);
 
+        City c = new City();
+        c.addLocation(v1);
+        c.addLocation(v2);
+        c.addLocation(v3);
+        c.addLocation(v4);
+        c.addLocation(v5);
+        c.addLocation(v6);
+
+        //c.displayVisitableWithoutPayingFee();
+        //System.out.println(Visitable.getVisitingDuration(v2.getOpeningTime(),v2.getClosingTime()));
+
+        TravelPlan t = new TravelPlan(c);
+        t.solve(v1,v4);
     }
 }

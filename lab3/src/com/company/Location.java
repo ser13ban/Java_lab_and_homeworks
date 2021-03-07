@@ -29,7 +29,15 @@ abstract class Location implements Comparable<Location> {
 
     @Override
     public int compareTo (Location other){
-        if(this.name == null) return 0;
-        return this.name.compareTo(other.name);
+        if( this instanceof  Visitable && other instanceof Visitable){
+            if (((Visitable) this).getOpeningTime() != null && ((Visitable) other).getOpeningTime() != null){
+                return ((Visitable) this).getOpeningTime().compareTo(((Visitable) other).getClosingTime());
+            }else
+            {
+                System.out.println("NULL instace");
+                return 0;
+            }
+        }
+        return 0;
     }
 }
