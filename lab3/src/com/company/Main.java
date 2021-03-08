@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
 
         Hotel v1 = new Hotel();
-        v1.setName("Hotel Victoria");
+        v1.setName("Hotel Unirea");
         Museum v2 = new Museum();
-        v2.setOpeningTime(LocalTime.of(9,30,0));
-        v2.setClosingTime(LocalTime.of(20,0,0));
-        v2.setName("Museul A");
+        /*v2.setOpeningTime(LocalTime.of(9,30,0));
+        v2.setClosingTime(LocalTime.of(20,0,0));*/
+        v2.setName("Muzeul A");
         Museum v3 = new Museum();
-        v3.setName("Museul B");
+        v3.setName("Muzeul B");
         Church v4 = new Church();
         v4.setName("Biserica A");
         Church v5 = new Church();
