@@ -1,5 +1,6 @@
 package com.company;
 
+import java.nio.file.FileAlreadyExistsException;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -41,10 +42,9 @@ public class Main {
         schoolPreference.put(schools[1],Arrays.asList(students[0],students[2],students[1]));
         schoolPreference.put(schools[2],Arrays.asList(students[0],students[1],students[3]));
 
-        for (Student s: studentPreference.keySet()
-             ) {
-            System.out.println("\n" + s.getName()) ;
-            studentPreference.get(s).forEach(listItem -> System.out.print(listItem.getName() + "\t" ));
-        }
+        Problem p = new Problem(studentList, schoolTreeSet,studentPreference, schoolPreference);
+        Solution s = new Solution(p);
+
+        //s.printSchoolsThatPrefereStudent(students[3]);
     }
 }

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="java1">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/java-faker-master/java-faker-master/src/main/java" />
+      <root url="file://$PROJECT_DIR$/java-faker-master/java-faker-master/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
