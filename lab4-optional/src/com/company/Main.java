@@ -51,7 +51,9 @@ public class Main {
 
         //s.printSchoolsThatPrefereStudent(students[3]);
         p.print();
-
+        List<School> l = new ArrayList<School>();
+        l.add(schools[0]);
+        s.printStudentsForListOfSchools(l);
 
     }
 }
