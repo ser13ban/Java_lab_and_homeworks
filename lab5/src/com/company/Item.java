@@ -1,16 +1,16 @@
 package com.company;
 
-import java.nio.file.Path;
+import java.io.Serializable;
 
-abstract class Item {
-    private Path path;
+abstract class Item implements Serializable {
+    private String path;
     private String name;
 
-    public Path getPath() {
+    public String getPath() {
         return path;
     }
 
-    public void setPath(Path path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
