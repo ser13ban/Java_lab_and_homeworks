@@ -31,9 +31,13 @@ public class Catalog  implements Serializable {
                 Photo photo = new Photo(p,name);
                 items.add(photo);
             }
-            if(p.toString().endsWith(".mkv") ){
+            if(p.toString().endsWith(".mkv") || p.toString().endsWith(".avi") ){
                 Video video = new Video(p,name);
                 items.add(video);
+            }
+            if (p.toString().endsWith(".mp3")){
+                Audio audio = new Audio(p,name);
+                items.add(audio);
             }
 
         } catch (AlreadyExistsException a){

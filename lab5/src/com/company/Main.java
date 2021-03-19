@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         Catalog c = new Catalog();
-        //c.add("C:\\Users\\Mihai\\Pictures\\moon_tree_starry_sky_132139_1920x1080.jpg", "picture1");
-        //c.add("C:\\Users\\Mihai\\Videos\\2021-02-24 10-03-39.mkv","video1");
+        c.add("C:\\Users\\Mihai\\Pictures\\moon_tree_starry_sky_132139_1920x1080.jpg", "picture1");
+        c.add("D:\\Movies\\naruto\\naruto\\[DB]_Naruto_Movie_1_[D367824A].avi","video1");
+        c.add("C:\\Users\\Mihai\\Music\\ACDC-Thunderstruck(OfficialVideo).mp3","melody1");
         Scanner in = new Scanner(System.in);
         Boolean exit = false;
         while(!exit){
@@ -48,6 +49,15 @@ public class Main {
                 LoadCommand l = new LoadCommand();
                 String[] argumets =command.split(" ");
                 l.load(c, argumets[1]);
+            }
+            else if (command.startsWith("report")){
+                ReportCommand r = new ReportCommand();
+                try {
+                    r.report(c);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
             }
 
         }

@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.Serializable;
 
-abstract class Item implements Serializable {
+public abstract class Item implements Serializable {
     private String path;
     private String name;
 
