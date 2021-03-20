@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws NotValidCommand {
+    public static void main(String[] args) throws NotValidCommandException {
         Catalog c = new Catalog();
         c.add("C:\\Users\\Mihai\\Pictures\\moon_tree_starry_sky_132139_1920x1080.jpg", "picture1");
         c.add("D:\\Movies\\naruto\\naruto\\[DB]_Naruto_Movie_1_[D367824A].avi","video1");
@@ -63,7 +63,7 @@ public class Main {
         }
     }
 
-    public static void checkCommand(String command) throws NotValidCommand{
+    public static void checkCommand(String command) throws NotValidCommandException {
         String[] commandArguemts = command.split(" ");
         if (!commandArguemts[0].equals("add") &&
             !commandArguemts[0].equals("play") &&
@@ -72,7 +72,7 @@ public class Main {
             !commandArguemts[0].equals("report") &&
             !commandArguemts[0].equals("quit")
         ){
-            throw new NotValidCommand("We don't have available the command: " + commandArguemts[0] );
+            throw new NotValidCommandException("We don't have available the command: " + commandArguemts[0] );
         }
         else if (commandArguemts[0].equals("add") || commandArguemts[0].equals("load")){
             //for the fumctioins that take a path we ckeck if the path is valid
@@ -80,10 +80,10 @@ public class Main {
             if (!file.isDirectory())
                 file = file.getParentFile();
             if (!file.exists()){
-                throw new NotValidCommand("The path that you provided points to a non existing  file");
+                throw new NotValidCommandException("The path that you provided points to a non existing  file");
             }
             if (commandArguemts[1].isEmpty()){
-                throw new NotValidCommand("I need a file for this command");
+                throw new NotValidCommandException("I need a file for this command");
             }
         }
     }
