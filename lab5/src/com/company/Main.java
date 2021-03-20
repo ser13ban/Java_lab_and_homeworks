@@ -35,32 +35,26 @@ public class Main {
             if (command.equals("quit")){
                 exit = true;
             }else if (command.startsWith("save")){
-                SaveCommand s = new SaveCommand();
-                s.Save(c);
+                new SaveCommand(c);
             }
             else if (command.startsWith("add")){
-                AddCommand a = new AddCommand();
                 String[] arguemts = command.split(" ");
-                a.add(c, arguemts[1], arguemts[2]);
+                new AddCommand(c, arguemts[1], arguemts[2]);
             }
             else if (command.startsWith("list")){
-                ListCommand l = new ListCommand();
-                l.list(c);
+                new ListCommand(c);
             }
             else if (command.startsWith("play")){
-                PlayCommand p = new PlayCommand();
                 String[] argumets = command.split(" ");
-                p.play(c,argumets[1]);
+                new PlayCommand(c,argumets[1]);
             }
             else if (command.startsWith("load")){
-                LoadCommand l = new LoadCommand();
                 String[] argumets =command.split(" ");
-                l.load(c, argumets[1]);
+                new LoadCommand(c, argumets[1]);
             }
             else if (command.startsWith("report")){
-                ReportCommand r = new ReportCommand();
                 try {
-                    r.report(c);
+                    new ReportCommand(c);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -87,6 +81,9 @@ public class Main {
                 file = file.getParentFile();
             if (!file.exists()){
                 throw new NotValidCommand("The path that you provided points to a non existing  file");
+            }
+            if (commandArguemts[1].isEmpty()){
+                throw new NotValidCommand("I need a file for this command");
             }
         }
     }

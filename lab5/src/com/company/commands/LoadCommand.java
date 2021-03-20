@@ -6,10 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LoadCommand extends Command {
-    public LoadCommand() {
-    }
-
-    public void load(Catalog c, String path){
+    public LoadCommand(Catalog c, String path) {
         try {
             c.load(path);
         } catch (FileNotFoundException e) {

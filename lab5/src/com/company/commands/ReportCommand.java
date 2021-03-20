@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class ReportCommand extends Command{
-    public void report(Catalog c) throws Exception{
+    public ReportCommand(Catalog c) throws Exception{
         Configuration cfg = new Configuration();
         cfg.setClassForTemplateLoading(Main.class, "templates");
 

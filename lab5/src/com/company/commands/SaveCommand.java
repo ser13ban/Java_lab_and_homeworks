@@ -6,9 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class SaveCommand extends Command {
-    public SaveCommand() {
-    }
-    public void Save(Catalog c){
+    public SaveCommand(Catalog c) {
         try {
             c.save();
         } catch (FileNotFoundException e) {
