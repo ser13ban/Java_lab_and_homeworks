@@ -2,11 +2,12 @@ package com.company;
 
 import com.company.commands.*;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotValidCommand {
         Catalog c = new Catalog();
         c.add("C:\\Users\\Mihai\\Pictures\\moon_tree_starry_sky_132139_1920x1080.jpg", "picture1");
         c.add("D:\\Movies\\naruto\\naruto\\[DB]_Naruto_Movie_1_[D367824A].avi","video1");
@@ -25,6 +26,12 @@ public class Main {
             System.out.println();
 
             String command = in.nextLine();
+            try{
+                checkCommand(command);
+            }catch (Exception e){
+                System.out.println(e.toString());
+            }
+
             if (command.equals("quit")){
                 exit = true;
             }else if (command.startsWith("save")){
@@ -59,7 +66,28 @@ public class Main {
                     e.printStackTrace();
                 }
             }
+        }
+    }
 
+    public static void checkCommand(String command) throws NotValidCommand{
+        String[] commandArguemts = command.split(" ");
+        if (!commandArguemts[0].equals("add") &&
+            !commandArguemts[0].equals("play") &&
+            !commandArguemts[0].equals("load") &&
+            !commandArguemts[0].equals("save") &&
+            !commandArguemts[0].equals("report") &&
+            !commandArguemts[0].equals("quit")
+        ){
+            throw new NotValidCommand("We don't have available the command: " + commandArguemts[0] );
+        }
+        else if (commandArguemts[0].equals("add") || commandArguemts[0].equals("load")){
+            //for the fumctioins that take a path we ckeck if the path is valid
+            File file = new File(commandArguemts[1]);
+            if (!file.isDirectory())
+                file = file.getParentFile();
+            if (!file.exists()){
+                throw new NotValidCommand("The path that you provided points to a non existing  file");
+            }
         }
     }
 }

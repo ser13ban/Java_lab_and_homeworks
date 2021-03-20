@@ -21,4 +21,12 @@ public abstract class Item implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "path='" + path + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

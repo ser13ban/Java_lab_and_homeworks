@@ -30,4 +30,14 @@ public class Photo extends Item  {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "path='" + path + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+
 }

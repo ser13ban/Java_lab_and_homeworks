@@ -28,4 +28,12 @@ public class Audio extends Item{
     public void setPath(String path) {
         this.path = path;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "path='" + path + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
