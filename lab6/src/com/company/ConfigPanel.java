@@ -2,10 +2,10 @@ package com.company;
 
 import javax.swing.*;
 
-public class ConfigPanel extends JFrame {
+public class ConfigPanel extends JPanel {
     final MainFrame frame;
-    JLabel label;         // we’re drawing regular polygons
-    JSpinner sidesField;  // number of sides
+    JLabel label; // we’re drawing regular polygons
+    JSpinner sidesField; // number of sides
     JComboBox colorCombo; // the color of the shape
 
     public ConfigPanel(MainFrame frame) {
@@ -17,8 +17,7 @@ public class ConfigPanel extends JFrame {
         JLabel sidesLabel = new JLabel("Number of sides:");
         sidesField = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
         sidesField.setValue(6); //default number of sides
-
-        // create the colorCombo, containing the values: Random and Black
+        //create the colorCombo, containing the values: Random and Black
         //...TODO
 
         add(sidesLabel); //JPanel uses FlowLayout by default
