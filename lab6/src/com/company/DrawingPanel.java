@@ -53,7 +53,7 @@ public class DrawingPanel extends JPanel {
 
     @Override
     public void update(Graphics g) {
-    } //Why did I do that?
+    }
 
     @Override
     protected void paintComponent(Graphics g) {

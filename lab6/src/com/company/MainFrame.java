@@ -18,11 +18,22 @@ public class MainFrame extends JFrame {
 
         //create the components
         canvas = new DrawingPanel(this);
-        // ...TODO
+        controlPanel = new ControlPanel(this);
+        configPanel = new ConfigPanel(this);
 
+        Button b1 = new Button("OK");
+        Button b2 = new Button("Cancel");
+
+        TextField size = new TextField("Size :");
+        TextField numberOfSides = new TextField("Number of sides :");
+        TextField stroke = new TextField("Stroke :");
+
+        // ...TODO
         //arrange the components in the container (frame)
         //JFrame uses a BorderLayout by default
         add(canvas, BorderLayout.CENTER); //this is BorderLayout.CENTER
+        add(controlPanel,BorderLayout.SOUTH);
+        add(configPanel,BorderLayout.NORTH);
         //...TODO
 
         //invoke the layout manager

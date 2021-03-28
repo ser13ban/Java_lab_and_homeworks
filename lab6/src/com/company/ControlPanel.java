@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ControlPanel extends JPanel {
-    final MainFrame frame;
+    MainFrame frame;
     JButton saveBtn = new JButton("Save");
 
     //create all buttons (Load, Reset, Exit)
@@ -25,12 +25,18 @@ public class ControlPanel extends JPanel {
         //change the default layout manager (just for fun)
         setLayout(new GridLayout(1, 4));
 
+        add(saveBtn);
+        add(loadBtn);
+        add(resetBtn);
+        add(exitBtn);
+
         //add all buttons
         //configure listeners for all buttons
         saveBtn.addActionListener(this::save);
         resetBtn.addActionListener(this::reset);
         //loadBtn.addActionListener(this::load);
         exitBtn.addActionListener(this::exit);
+
 
         //...TODO
     }
@@ -48,14 +54,16 @@ public class ControlPanel extends JPanel {
         frame.getContentPane().invalidate();
         frame.getContentPane().validate();
         frame.getContentPane().repaint();
+
+        System.out.println("ai apasat reset");
     }
 
-    /*
-    private void load(ActionEvent e) {
-        try {
-            ImageIO.load(frame.canvas.image, "PNG", new File("d:/test.png"));
-        } catch (IOException ex) { System.err.println(ex); }
-    }*/
+
+//    private void load(ActionEvent e) {
+//        try {
+//            ImageIO.load(frame.canvas.image, "PNG", new File("d:/test.png"));
+//        } catch (IOException ex) { System.err.println(ex); }
+//    }
 
 
 
