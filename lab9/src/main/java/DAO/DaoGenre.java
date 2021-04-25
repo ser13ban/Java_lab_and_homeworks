@@ -1,5 +1,6 @@
 package DAO;
 
+import Entityes.GenresEntity;
 import org.example.Database;
 import org.example.Genre;
 
@@ -12,7 +13,7 @@ public class DaoGenre {
 
     Connection conn = Database.getConnection();
 
-    public int addGenre(Genre genre) throws SQLException {
+    public int addGenre(GenresEntity genre) throws SQLException {
 
         String query = "INSERT INTO genres (name)"+" VALUES (?)";
         PreparedStatement ps = conn.prepareStatement(query);
@@ -21,16 +22,16 @@ public class DaoGenre {
         return ps.executeUpdate();
     }
 
-    public Genre getGenre(int id) throws SQLException {
+    public GenresEntity getGenre(int id) throws SQLException {
         String query = "select * from genres where id = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, id);
-        Genre genre = new Genre();
+        GenresEntity genre = new GenresEntity();
         ResultSet rs = ps.executeQuery();
         boolean check = false;
         while (rs.next()) {
             check = true;
-            genre.setGenreId(rs.getInt("id"));
+            genre.setId(Long.valueOf(rs.getInt("id")));
             genre.setName(rs.getString("name"));
         }
         if (check)

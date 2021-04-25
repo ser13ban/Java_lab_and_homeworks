@@ -10,7 +10,12 @@ public class MooviesRepository {
     Connection conn = Database.getConnection();
 
     public void create(MoviesEntity movie){
-
+        DaoMovie daoMovie = new DaoMovie();
+        try{
+            daoMovie.addMovie(movie);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public MoviesEntity findById(int id){

@@ -1,5 +1,6 @@
 package DAO;
 
+import Entityes.MoviesEntity;
 import org.example.Actor;
 import org.example.Database;
 import org.example.Director;
@@ -16,31 +17,31 @@ public class DaoMovie {
 
     Connection conn = Database.getConnection();
 
-    public int addMovie(Movie movie) throws SQLException {
+    public int addMovie(MoviesEntity movie) throws SQLException {
 
         String query = "INSERT INTO movies (title, release_date, duration, score)" + " VALUES (?, ?, ?, ?)";
         PreparedStatement ps = conn.prepareStatement(query);
 
         ps.setString(1, movie.getTitle());
-        ps.setDate(2, movie.getRelease_date());
+        ps.setDate(2, movie.getReleaseDate());
         ps.setInt(3, movie.getDuration());
         ps.setDouble(4, movie.getScore());
         ps.executeUpdate("use bd;");
         return ps.executeUpdate();
     }
 
-    public Movie getMovie(int id) throws SQLException {
+    public MoviesEntity getMovie(int id) throws SQLException {
         String query = "select * from movies where id = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, id);
-        Movie movie = new Movie();
+        MoviesEntity movie = new MoviesEntity();
         ResultSet rs = ps.executeQuery();
         boolean check = false;
         while (rs.next()) {
             check = true;
-            movie.setId(rs.getInt("id"));
+            movie.setId(Long.valueOf(rs.getInt("id")) );
             movie.setTitle(rs.getString("title"));
-            movie.setRelease_date(rs.getDate("release_date"));
+            movie.setReleaseDate(rs.getDate("release_date"));
             movie.setDuration(rs.getInt("duration"));
             movie.setScore(rs.getDouble("score"));
         }
