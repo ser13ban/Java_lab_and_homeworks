@@ -11,6 +11,7 @@ import java.sql.SQLOutput;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        String response = "";
         String serverAddress = "127.0.0.1"; // The server's IP address
         int PORT = 8100; // The server's port
         Boolean quit = false;
@@ -42,17 +43,18 @@ public class Main {
                         case "login":
                             request =request+" " + commandSplit[1];
                             break;
-                        case "freind":
-                            request =request+" " + commandSplit[1];
+                        case "friend":
+                            request = command;
                             break;
                         case "send":
-                            request =request+" " + commandSplit[1];
+                            request = command;
                             break;
                         case "read":
-                            request =request+" " + commandSplit[1];
+                            request = command;
                             break;
                         case "exit":
                             quit = true;
+                            request = command;
                             break;
                         default:
                             System.out.println("This is not a recognized command");
@@ -62,8 +64,10 @@ public class Main {
 
                     out.println(request);
 
-                    String response = in.readLine();
-                    System.out.println(response);
+                    response = in.readLine();
+                    if (response!=null){
+                        System.out.println(response);
+                    }
 
                 }
             }catch (UnknownHostException e){
