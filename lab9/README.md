@@ -10,8 +10,8 @@ Am folosit imlementarea Hibernate pentru JPA si am creat fisierul persitence.xml
 
 ### Class models
 
-Am definit calsele model pentru toate entitateile din baza de date..
+Am definit calsele model pentru toate entitateile din baza de date (GeneresEntity, MoviesEntity, GuideEntity)
 
-### Repositoory
+### Repository
 
-Am creat o calsa reposturoy pentru clasa .. si am imlementat metodele create(primeste o entiate si creaza o intrare in baza de date), findById(returenaza o entitate in functie de un id), fyndByName pentru aceasta(retuneaza un name in functie de un nume furnizat).
+Am creat o calsa reposturoy pentru clasa Movies si am imlementat metodele create(primeste o entiate si creaza o intrare in baza de date), findById(returenaza o entitate in functie de un id), fyndByName pentru aceasta(retuneaza un name in functie de un nume furnizat).

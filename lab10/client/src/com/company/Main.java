@@ -53,8 +53,13 @@ public class Main {
                             request = command;
                             break;
                         case "exit":
-                            quit = true;
                             request = command;
+                            quit = true;
+                            break;
+                        case "stop":
+                            request = command;
+                            quit = true;
+                            System.exit(1);
                             break;
                         default:
                             System.out.println("This is not a recognized command");

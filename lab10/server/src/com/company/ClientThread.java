@@ -113,6 +113,18 @@ public class ClientThread extends Thread {
                             }
                         }
                         break;
+                    case "stop":
+                        //I have to stop all the threads
+                        for (Thread t : Thread.getAllStackTraces().keySet())
+                        {  if (t.getState()==Thread.State.RUNNABLE)
+                            t.interrupt();
+                        }
+
+                        for (Thread t : Thread.getAllStackTraces().keySet())
+                        {  if (t.getState()==Thread.State.RUNNABLE)
+                            t.stop();
+                        }
+                        break;
                 }
 
                 //sending the response to the cilent
