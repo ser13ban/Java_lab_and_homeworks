@@ -1,8 +1,8 @@
-package com.company;
+package com.example.demo;
 
 import java.util.*;
 
-public class User {
+public class Person {
     private String name;
     private List friends = new ArrayList<String>();
     private Hashtable<String,String> messages = new Hashtable<String,String>();
@@ -27,10 +27,10 @@ public class User {
         this.messages = messages;
     }
 
-    public User(String name){
+    public Person(String name){
         this.name = name;
-        this.friends = new ArrayList<String>();
-        this.messages = new Hashtable<String,String>();
+        //this.friends = new ArrayList<String>();
+        //this.messages = new Hashtable<String,String>();
     }
 
     public String getName() {
