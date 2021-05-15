@@ -28,6 +28,14 @@ public class UserController {
         return service.getUsers();
     }
 
+
+    @GetMapping("/mostPopularUser")
+    public User getMostPopularUser(){
+        return service.getMostPopularUser();
+    }
+
+    @GetMapping("/userFriends/{id}")
+    public List<User> getUserFriends(@PathVariable int id) {return service.getUserFriends(id);}
     @GetMapping("/userById/{id}")
     public User findById(@PathVariable int id){
         return service.getUserById(id);

@@ -26,13 +26,17 @@ public class UserService {
         return repository.findAll();
     }
 
+    public List<User> getUserFriends(Integer id){ return repository.getFreinds( id);}
+
     public User getUserById(int id){
         return repository.findById(id).orElse(null);
     }
+    public User getMostPopularUser(){ return repository.getMostPopularUser();}
 
     public User getUserByName(String name){
         return repository.findByName(name);
     }
+
 
     //DELETE
     public String deleteProduct(int id){
