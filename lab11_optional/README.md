@@ -1,6 +1,6 @@
 # Laboratorul 11
 
-O reimplementare a laboratorului 10 ca un serviciu web rest folosind Spring boot Si structura casica MVC din acest framework
+O reimplementare a laboratorului 10 ca un serviciu web rest folosind Spring boot si structura clasica MVC din acest framework
 
 ## Compulsory
 
