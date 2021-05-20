@@ -7,12 +7,6 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<!--
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=910278569813888&autoLogAppEvents=1"
-        nonce="KLXoHO9F">
-</script>
--->
 
 <script>
     let token = "";
@@ -22,6 +16,8 @@
         if (response.status === 'connected') {   // Logged into your webpage and Facebook.
             //I have to send the token to the java
             token = response.authResponse.accessToken;
+            //add it to the session
+
             console.log(token);
 
 
@@ -64,15 +60,16 @@
         });
     }
 
+    function setTokenOnSession(){
+        return token;
+    }
 
     function getTokenClick(){
         document.getElementById("link2").href = "/firstAPIcall?token=" + token;
     }
     function formHandler() {
-        let fLink = document.getElementById("fLink").value;
-        console.log(fLink);
         //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
-        document.getElementById("link2").href = "/firstAPIcall/" + token + "/"+fLink;
+        window.location.href="/qa/" + token;
     }
 </script>
 
@@ -89,18 +86,11 @@
 </div>
 
 <form action="javascript:void(0);" onsubmit="return formHandler()">
-    <input type="text" id="fLink" size="20" name="mail"><br><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Q&A">
 </form>
 
-
-<br><br>
-<a id="link" onclick="getTokenClick()"> Give me a link</a>
-<br>
-<a id="link2"> press this after you got the token</a>
-
 <!-- Load the JS SDK asynchronously -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></SCRIPT>
 </body>
 </html>
 
