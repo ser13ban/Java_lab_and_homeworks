@@ -15,13 +15,11 @@ public class GetPostsService {
     public List <Post> call_me_to_get_posts(String access_token) throws Exception {
         List < Post > list_posts = new ArrayList < Post > ();
         try {
+            //SETUP THE CURL REQUEST
             String url = "https://graph.facebook.com/v10.0/me/posts?access_token=" + access_token;
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            // optional default is GET
             con.setRequestMethod("GET");
-            //add request header
-            con.setRequestProperty("User-Agent", "Mozilla/5.0");
             int responseCode = con.getResponseCode();
             System.out.println("\nSending 'GET' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);

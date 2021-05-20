@@ -10,6 +10,14 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+<script>
+    function formHandler(ID, token) {
+        //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
+        window.location.href="/qa/comments/" + ID + "/" + token;
+    }
+</script>
+
 <h2>
     This is the Q&A page you will have to chose one of your posts
     <br>
@@ -27,9 +35,13 @@
 
 
     %>
-    <%=obj_Post_Use_Bean.getId() %><br>
-    <%=obj_Post_Use_Bean.getMessage() %><br>
-    <%=obj_Post_Use_Bean.getCreated_time() %><br>
+                <%=obj_Post_Use_Bean.getId() %><br>
+                <%=obj_Post_Use_Bean.getMessage() %><br>
+                <%=obj_Post_Use_Bean.getCreated_time() %><br>
+    <br>
+    <form action="javascript:void(0);" onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId() %> ", "<%=(String) request.getAttribute("token")%>")'>
+        <input type="submit" value="Get comments">
+    </form>
     <hr>
     <%
             }

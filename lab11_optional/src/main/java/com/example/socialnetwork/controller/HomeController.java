@@ -26,8 +26,14 @@ public class HomeController {
         ModelAndView model = new ModelAndView("qa");
         model.addObject("token", token);
         return model;
-        //TODO make call to facebook api for comments
-        //TODO send the data to thte index jsp for displayng the output
+    }
+
+    @GetMapping( "/qa/comments/{id}/{token}")
+    public ModelAndView comments(@PathVariable String id,@PathVariable String token){
+        ModelAndView model = new ModelAndView("comments");
+        model.addObject("id", id);
+        model.addObject("token", token);
+        return model;
     }
 
 
