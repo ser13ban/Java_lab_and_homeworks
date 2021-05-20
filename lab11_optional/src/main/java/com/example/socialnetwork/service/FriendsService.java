@@ -14,10 +14,11 @@ public class FriendsService {
     private FriendsRepository repository;
 
     //CREATE
-    public Friends saveFriend(Friends friend){
+    public Friends saveFriend(Friends friend) {
         return repository.save(friend);
     }
-    public List<Friends> saveFriends(List<Friends> friends){
+
+    public List<Friends> saveFriends(List<Friends> friends) {
         return repository.saveAll(friends);
     }
 

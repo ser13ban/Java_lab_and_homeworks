@@ -14,12 +14,12 @@
 <script>
     function formHandler(ID, token) {
         //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
-        window.location.href="/qa/comments/" + ID + "/" + token;
+        window.location.href="/giveaway/getWinner/" + ID + "/" + token;
     }
 </script>
 
 <h2>
-    This is the Q&A page you will have to chose one of your posts
+    This is the GiveAway page, you will have to chose one of you posts and we will give you one winner from youre comments
     <br>
     <br>
     <hr>
@@ -37,11 +37,11 @@
 
 
     %>
-                <%=obj_Post_Use_Bean.getMessage() %><br>
-                <%=obj_Post_Use_Bean.getCreated_time() %><br>
+    <%=obj_Post_Use_Bean.getMessage() %><br>
+    <%=obj_Post_Use_Bean.getCreated_time() %><br>
     <br>
     <form action="javascript:void(0);" onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId() %> ", "<%=(String) request.getAttribute("token")%>")'>
-        <input type="submit" value="Get questions">
+        <input type="submit" value="Get winner">
     </form>
     <hr>
     <%

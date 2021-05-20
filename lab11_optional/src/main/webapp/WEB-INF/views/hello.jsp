@@ -10,11 +10,15 @@
 
 <script>
     let token = "";
+    function getRidOfLogInButton(){
+        document.getElementById("loginButton").remove();
+    }
     function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
         console.log('statusChangeCallback');
         console.log(response);                   // The current login status of the person.
         if (response.status === 'connected') {   // Logged into your webpage and Facebook.
             //I have to send the token to the java
+            getRidOfLogInButton();
             token = response.authResponse.accessToken;
             //add it to the session
 
@@ -67,16 +71,23 @@
     function getTokenClick(){
         document.getElementById("link2").href = "/firstAPIcall?token=" + token;
     }
-    function formHandler() {
+    function formHandlerQA() {
         //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
         window.location.href="/qa/" + token;
+    }
+    function formHandlerGiveAway() {
+        //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
+        window.location.href="/giveaway/" + token;
     }
 </script>
 
 
 <!-- The JS SDK Login Button -->
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<div id="loginButton">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+</div>
+
 <!--
 <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default"
      data-auto-logout-link="false" data-use-continue-as="false"></div>
@@ -85,8 +96,11 @@
 <div id="status">
 </div>
 
-<form action="javascript:void(0);" onsubmit="return formHandler()">
+<form action="javascript:void(0);" onsubmit="return formHandlerQA()">
     <input type="submit" value="Q&A">
+</form>
+<form action="javascript:void(0);" onsubmit="return formHandlerGiveAway()">
+    <input type="submit" value="Give away">
 </form>
 
 <!-- Load the JS SDK asynchronously -->

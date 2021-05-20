@@ -11,9 +11,10 @@ import java.util.List;
 import com.example.socialnetwork.entity.Post;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 public class GetPostsService {
-    public List <Post> call_me_to_get_posts(String access_token) throws Exception {
-        List < Post > list_posts = new ArrayList < Post > ();
+    public List<Post> call_me_to_get_posts(String access_token) throws Exception {
+        List<Post> list_posts = new ArrayList<Post>();
         try {
             //SETUP THE CURL REQUEST
             String url = "https://graph.facebook.com/v10.0/me/posts?access_token=" + access_token;
@@ -27,9 +28,10 @@ public class GetPostsService {
                     new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
-            while ((inputLine = in .readLine()) != null) {
+            while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
-            } in .close();
+            }
+            in.close();
             System.out.println(response);
             JSONObject data_response = new JSONObject(response.toString());
             JSONArray data_array = data_response.getJSONArray("data");

@@ -13,8 +13,7 @@ public class FriendsController {
     private FriendsService service;
 
     @PostMapping("/addFriend")
-    public Friends addFrend(@RequestBody Friends friend)
-    {
+    public Friends addFrend(@RequestBody Friends friend) {
         return service.saveFriend(friend);
     }
 }

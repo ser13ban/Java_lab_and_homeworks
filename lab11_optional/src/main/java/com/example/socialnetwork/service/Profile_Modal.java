@@ -8,9 +8,10 @@ import java.net.URL;
 
 import com.example.socialnetwork.entity.Profile_Bean;
 import org.json.JSONObject;
+
 public class Profile_Modal {
     public Profile_Bean call_me(String access_token) throws Exception {
-        String url = "https://graph.facebook.com/v2.12/me?fields=id,name,picture,email&access_token="+access_token;
+        String url = "https://graph.facebook.com/v2.12/me?fields=id,name,picture,email&access_token=" + access_token;
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // optional default is GET
@@ -29,14 +30,14 @@ public class Profile_Modal {
         }
         in.close();
         System.out.println(response);
-        Profile_Bean obj_Profile_Bean=new Profile_Bean();
+        Profile_Bean obj_Profile_Bean = new Profile_Bean();
         JSONObject myResponse = new JSONObject(response.toString());
         obj_Profile_Bean.setUser_name(myResponse.getString("name"));
         obj_Profile_Bean.setId(myResponse.getString("id"));
         obj_Profile_Bean.setEmail(myResponse.getString("email"));
-        JSONObject picture_reponse=myResponse.getJSONObject("picture");
-        JSONObject data_response=picture_reponse.getJSONObject("data");
-        System.out.println("URL : "+data_response.getString("url"));
+        JSONObject picture_reponse = myResponse.getJSONObject("picture");
+        JSONObject data_response = picture_reponse.getJSONObject("data");
+        System.out.println("URL : " + data_response.getString("url"));
         obj_Profile_Bean.setProfile_picture(data_response.getString("url"));
         return obj_Profile_Bean;
     }

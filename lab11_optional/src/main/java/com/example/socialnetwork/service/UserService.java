@@ -14,38 +14,44 @@ public class UserService {
     private UserRepository repository;
 
     //CREATE
-    public User saveUser(User user){
+    public User saveUser(User user) {
         return repository.save(user);
     }
-    public List<User> saveUsers(List<User> users){
+
+    public List<User> saveUsers(List<User> users) {
         return repository.saveAll(users);
     }
 
     //GET
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return repository.findAll();
     }
 
-    public List<User> getUserFriends(Integer id){ return repository.getFreinds( id);}
+    public List<User> getUserFriends(Integer id) {
+        return repository.getFreinds(id);
+    }
 
-    public User getUserById(int id){
+    public User getUserById(int id) {
         return repository.findById(id).orElse(null);
     }
-    public User getMostPopularUser(){ return repository.getMostPopularUser();}
 
-    public User getUserByName(String name){
+    public User getMostPopularUser() {
+        return repository.getMostPopularUser();
+    }
+
+    public User getUserByName(String name) {
         return repository.findByName(name);
     }
 
 
     //DELETE
-    public String deleteProduct(int id){
+    public String deleteProduct(int id) {
         repository.deleteById(id);
         return "removed user with the id" + id;
     }
 
     //UPDATE
-    public User updateUser(User user){
+    public User updateUser(User user) {
         User existingUser = repository.findById(user.getId()).orElse(null);
         existingUser.setName(user.getName());
         return existingUser;
