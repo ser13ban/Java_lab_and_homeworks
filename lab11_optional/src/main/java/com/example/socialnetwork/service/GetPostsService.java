@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.socialnetwork.entity.Post;
 import org.json.JSONArray;
@@ -55,7 +56,13 @@ public class GetPostsService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return list_posts;
+
+        List<Post> filterPosts = list_posts.stream().filter(
+                p -> p.getMessage() != null &&
+                        p.getId() != null &&
+                        p.getCreated_time() != null
+        ).collect(Collectors.toList());
+        return filterPosts;
     }
 }
 
