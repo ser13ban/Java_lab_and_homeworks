@@ -1,10 +1,7 @@
 <%@page import="com.example.socialnetwork.entity.Post" %>
-<%@page import="com.example.socialnetwork.service.Profile_Modal" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="com.example.socialnetwork.service.GetPostsService" %>
-<%@ page import="com.example.socialnetwork.entity.Profile_Bean" %>
-<%@ page import="java.util.Map" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -26,7 +23,6 @@
     <!-- In this page I want to display to the first 10-->
     <%
         String token  = (String) request.getAttribute("token");
-        Profile_Bean obj_Profile_Bean = (Profile_Bean) session.getAttribute("fb_user_session");
         GetPostsService obj_Post_Modal = new GetPostsService();
         List<Post> list_of_posts = obj_Post_Modal.call_me_to_get_posts(token);
         Iterator<Post> it_list_of_posts = list_of_posts.iterator();

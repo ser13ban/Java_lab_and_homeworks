@@ -1,6 +1,3 @@
-<%@page import="com.example.socialnetwork.entity.Profile_Bean"%>
-<%@page import="com.example.socialnetwork.service.Profile_Modal"%>
-<%@ page import="com.example.socialnetwork.service.GetPostsService" %>
 <%@ page import="com.example.socialnetwork.service.GetCommentsService" %>
 <%@ page import="com.example.socialnetwork.entity.Comment" %>
 <%@ page import="java.util.List" %>

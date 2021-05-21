@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.socialnetwork.entity.Comment;
-import com.example.socialnetwork.entity.Post;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -57,8 +56,6 @@ public class GetCommentsService {
             System.out.println(e);
         }
 
-        //TODO call to a function that parses the messages and check for inccorect (does't have a question mark) ones
-        //TODO call a function that checks for inadequate language
         return commentList;
     }
 
@@ -68,5 +65,4 @@ public class GetCommentsService {
         return winner;
     }
 
-    //TODO make a funciton that gives a random question(from the list that is already checked for correctness)
 }

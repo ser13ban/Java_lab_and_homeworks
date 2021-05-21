@@ -11,16 +11,6 @@ public class HomeController {
         return "hello";
     }
 
-    @RequestMapping(value = "/login/signin/{access_token}", method = RequestMethod.GET)
-    public String Sign_in_controller(@RequestParam String access_token) {
-        return "Sign_in_controller";
-    }
-
-    @RequestMapping(value = "/login/signin/Profile_Page", method = RequestMethod.GET)
-    public String Profile_Page() {
-        return "Profile_Page";
-    }
-
     @GetMapping("/qa/{token}")
     public ModelAndView qa(@PathVariable String token) {
         System.out.println("the token got from FB is " + token);
