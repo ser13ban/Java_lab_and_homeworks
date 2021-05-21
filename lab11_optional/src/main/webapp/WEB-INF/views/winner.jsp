@@ -18,8 +18,8 @@ AND THE WINNER YOUR YOUR GIVEAWAY IS: <br><hr>
     List<Comment> commentList =  commentsService.call_me_to_get_comments(postId,token);
     Comment winner = commentsService.getWinner(commentList);
 %>
-<%=winner.getName()%>
-<%=winner.getMessage()%>
-<%=winner.getCreated_time()%>
+<%=winner.getName()%><br>
+<%=winner.getMessage()%><br>
+<%=winner.getCreated_time()%><br>
 </body>
 </html>

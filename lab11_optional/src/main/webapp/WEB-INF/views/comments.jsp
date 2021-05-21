@@ -16,12 +16,44 @@
             height: 50px;
         }
         .answered{
-            background: lawngreen;
+            background-color: lawngreen;
 
         }
         .notAnswered{
-            background: lightcoral;
+            background-color: lightcoral;
         }
+
+        #tick-mark {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+        }
+
+        #tick-mark::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 50%;
+            width: 3px;
+            background-color: #336699;
+            content: "";
+            transform: translateX(10px) rotate(-45deg);
+            transform-origin: left bottom;
+        }
+
+        #tick-mark::after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background-color: #336699;
+            content: "";
+            transform: translateX(10px) rotate(-45deg);
+            transform-origin: left bottom;
+        }
+
     </style>
     <script type="application/javascript" defer>
         function changeBack(bool,id){
@@ -62,7 +94,9 @@
             <%=comment.getMessage() %><br>
             <%=comment.getCreated_time() %><br>
             <button id="bool<%=id%>" class="notAnswered boolean"  onclick='changeBack(<%=comment.getAnswered()%>,"bool<%=id%>")'>
+                <div id="tick-mark"></div>
             </button>
+
 
 
     <hr>

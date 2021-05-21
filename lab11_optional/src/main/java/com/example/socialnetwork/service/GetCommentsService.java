@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.example.socialnetwork.entity.Comment;
 import org.json.JSONArray;
@@ -60,9 +61,8 @@ public class GetCommentsService {
     }
 
     public Comment getWinner(List<Comment> comments){
-        Comment winner = new Comment();
-        //TODO get a random winner form the list
-        return winner;
+        Random rand = new Random();
+        return comments.get(rand.nextInt(comments.size()));
     }
 
 }
