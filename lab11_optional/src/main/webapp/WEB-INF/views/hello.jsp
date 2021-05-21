@@ -5,6 +5,9 @@
     <title>Facebook Login JavaScript Example</title>
     <meta charset="UTF-8">
     <style>
+        body{
+            background-image: url('background.jpg');
+        }
         input {
             width: 200px;
             height: 70px;
