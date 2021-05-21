@@ -5,9 +5,35 @@
     <title>Facebook Login JavaScript Example</title>
     <meta charset="UTF-8">
     <style>
-        body{
+        .purple {
+            color: #c32c71;
+        }
+        .titles{
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        .instructionContainer {
+            padding-top: 8%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .instruction {
+            max-width: 40%;
+        }
+
+        .leftInstruction {
+            align-self: flex-start;
+        }
+
+        .rightInstruction {
+            align-self: flex-end;
+        }
+
+        body {
             background-image: url('background.jpg');
         }
+
         input {
             width: 200px;
             height: 70px;
@@ -125,7 +151,8 @@
         input:hover span {
             animation-play-state: paused;
         }
-        .wrapper{
+
+        .wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -133,7 +160,8 @@
             width: 100vw;
             height: 100vh;
         }
-        .spacer{
+
+        .spacer {
             margin-bottom: 5%;
         }
     </style>
@@ -234,21 +262,36 @@
 </div>
 <div class="wrapper">
 
+    <h1 class="titles">Welcome to our Web app</h1>
 
-<form class="spacer" action="javascript:void(0);" onsubmit="return formHandlerQA() ">
-    <input type="submit" value="Q&A"></form>
+    <form class="spacer" action="javascript:void(0);" onsubmit="return formHandlerQA() ">
+        <input type="submit" value="Q&A"></form>
     <span></span>
     <span></span>
     <span></span>
     <span></span>
-</form>
-<form action="javascript:void(0);" onsubmit="return formHandlerGiveAway()">
-    <input type="submit" value="Give away">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</form>
+    </form>
+    <form action="javascript:void(0);" onsubmit="return formHandlerGiveAway()">
+        <input type="submit" value="Give away">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </form>
+    <div class="instructionContainer">
+        <div class="leftInstruction instruction">
+            <h2>
+                If you want to make a Q and A with our app make sure to have a post on facebook that contains the <span
+                    class="purple">#Q&A</span> hashtag
+            </h2>
+        </div>
+        <div class="rightInstruction instruction">
+            <h2>
+                If you want to make a give away using our app make sure that you have one post on facebook with
+                the <span class="purple">#giveaway</span> hastag
+            </h2>
+        </div>
+    </div>
 </div>
 <!-- Load the JS SDK asynchronously -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></SCRIPT>
