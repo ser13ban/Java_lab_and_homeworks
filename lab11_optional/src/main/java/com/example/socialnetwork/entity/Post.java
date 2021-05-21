@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
-    private String message;
     private String story;
+    private String message;
     private String created_time;
     private String id;
     private String paging_previous;

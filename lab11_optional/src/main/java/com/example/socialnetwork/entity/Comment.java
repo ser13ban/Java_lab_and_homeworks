@@ -1,6 +1,7 @@
 package com.example.socialnetwork.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
-    String name;
-    //TODO analize the returnez json in order to get the comments
+    private String story;
+    private String created_time;
+    private String name;
+    private String idUSer;
+    private String message;
+    private String id;
+    private String paging_previous;
+    private String paging_next;
+    private Boolean answered = false;
 }

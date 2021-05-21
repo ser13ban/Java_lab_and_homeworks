@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.socialnetwork.entity.Comment;
+import com.example.socialnetwork.entity.Post;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -24,12 +25,48 @@ public class GetCommentsService {
             int responseCode = con.getResponseCode();
             System.out.println("\nSending 'GET' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
+            String inputLine;
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
 
-            //TODO parse the json to obtain a list of comments
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            System.out.println(response);
+            //parse string to json
+            JSONObject data_response = new JSONObject(response.toString());
+            JSONArray data_array = data_response.getJSONArray("data");
+            for (int count = 0; count < data_array.length(); count++) {
+                Comment comment = new Comment();
+                comment.setCreated_time(data_array.getJSONObject(count).getString("created_time"));
+                String from = data_array.getJSONObject(count).getString("from");
+                JSONObject from_response = new JSONObject(from.toString());
+                comment.setName(from_response.getString("name"));
+                comment.setIdUSer(from_response.getString("id"));
+                comment.setMessage(data_array.getJSONObject(count).getString("message"));
+                comment.setId(data_array.getJSONObject(count).getString("id"));
+
+               commentList.add(comment);
+            }
 
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        //TODO call to a function that parses the messages and check for inccorect (does't have a question mark) ones
+        //TODO call a function that checks for inadequate language
         return commentList;
     }
+
+    public Comment getWinner(List<Comment> comments){
+        Comment winner = new Comment();
+        //TODO get a random winner form the list
+        return winner;
+    }
+
+    //TODO make a funciton that gives a random question(from the list that is already checked for correctness)
 }
