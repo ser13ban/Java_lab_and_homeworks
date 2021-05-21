@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="com.example.socialnetwork.service.GetCommentsQaService" %>
+<%@ page import="java.util.Random" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -69,14 +70,12 @@
 
         }
 
-        function getRandomComm(id,token){
-            window.location.href="/qa/comments/comment/" + id + "/" + token;
-        }
+
     </script>
 </head>
 <body>
     THIS IS THE COMMENTS PAGE
-    <br><hr>
+    <br>
     <%
         String token  = (String) request.getAttribute("token");
         String postId  = (String) request.getAttribute("id");
@@ -87,14 +86,12 @@
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Comment randomComment = commentsService.randomComment(commentList);
-        System.out.println(randomComment);
+
     %>
 
-    <button id="getRandom" onclick='getRandomComm("<%=postId%>","<%=(String) request.getAttribute("token")%>")'>Get one random comment</button>
 
     <br><hr>
-    <!-- this is were I want to take the photos of-->
+
 
 <%
     Iterator<Comment> comments = commentList.iterator();

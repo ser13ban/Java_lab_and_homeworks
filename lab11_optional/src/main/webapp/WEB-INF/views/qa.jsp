@@ -163,8 +163,9 @@
     <!-- In this page I want to display to the first 10-->
     <%
         String token  = (String) request.getAttribute("token");
-        GetPostsService obj_Post_Modal = new GetPostsService();
-        List<Post> list_of_posts = obj_Post_Modal.call_me_to_get_posts(token);
+        GetPostsService qaPostsService = new GetPostsService();
+        List<Post> list_of_posts = qaPostsService.call_me_to_get_posts(token);
+        list_of_posts = qaPostsService.getQaPosts(list_of_posts);
         Iterator<Post> it_list_of_posts = list_of_posts.iterator();
         if (list_of_posts.size() > 0) {
             Post obj_Post_Use_Bean = new Post();

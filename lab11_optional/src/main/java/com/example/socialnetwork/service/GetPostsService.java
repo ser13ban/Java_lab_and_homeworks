@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import com.example.socialnetwork.entity.Post;
@@ -63,6 +64,19 @@ public class GetPostsService {
                         p.getCreated_time() != null
         ).collect(Collectors.toList());
         return filterPosts;
+    }
+
+    public List<Post> getQaPosts(List<Post> posts){
+        return posts.stream().filter(
+                p-> p.getMessage().contains("#Q&A") ||
+                        p.getMessage().contains("#q&a")
+        ).collect(Collectors.toList());
+    }
+
+    public List<Post> getGiveAway(List<Post> posts){
+        return posts.stream().filter(
+                p-> p.getMessage().toLowerCase(Locale.ROOT).contains("#giveaway")
+        ).collect(Collectors.toList());
     }
 }
 
