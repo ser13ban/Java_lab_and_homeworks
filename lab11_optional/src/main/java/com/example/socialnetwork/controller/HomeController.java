@@ -43,5 +43,12 @@ public class HomeController {
         return model;
     }
 
+    @GetMapping("/qa/comments/comment/{id}/{token}")
+    public ModelAndView comment(@PathVariable String id, @PathVariable String token) {
+        ModelAndView model = new ModelAndView("comment");
+        model.addObject("id", id);
+        model.addObject("token", token);
+        return model;
+    }
 
 }

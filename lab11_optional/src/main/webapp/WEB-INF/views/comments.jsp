@@ -68,18 +68,35 @@
             }
 
         }
+
+        function getRandomComm(id,token){
+            window.location.href="/qa/comments/comment/" + id + "/" + token;
+        }
     </script>
 </head>
 <body>
     THIS IS THE COMMENTS PAGE
     <br><hr>
-    <!-- this is were I want to take the photos of-->
-<%
-    String token  = (String) request.getAttribute("token");
-    String postId  = (String) request.getAttribute("id");
-    GetCommentsQaService commentsService = new GetCommentsQaService();
-    List<Comment> commentList =  commentsService.qaComments(postId,token);
+    <%
+        String token  = (String) request.getAttribute("token");
+        String postId  = (String) request.getAttribute("id");
+        GetCommentsQaService commentsService = new GetCommentsQaService();
+        List<Comment> commentList = null;
+        try {
+            commentList = commentsService.qaComments(postId,token);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Comment randomComment = commentsService.randomComment(commentList);
+        System.out.println(randomComment);
+    %>
 
+    <button id="getRandom" onclick='getRandomComm("<%=postId%>","<%=(String) request.getAttribute("token")%>")'>Get one random comment</button>
+
+    <br><hr>
+    <!-- this is were I want to take the photos of-->
+
+<%
     Iterator<Comment> comments = commentList.iterator();
 
     if (commentList.size() > 0) {

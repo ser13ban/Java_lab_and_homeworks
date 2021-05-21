@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class GetCommentsQaService {
@@ -38,8 +39,13 @@ public class GetCommentsQaService {
         return null;
     }
     public Comment randomComment(List<Comment> commentList){
-        Comment comment = new Comment();
-        //TODO returns a random comment for the user to answer
-        return comment;
+        do{
+            Random rand = new Random();
+            int index = rand.nextInt(commentList.size());
+            if(!commentList.get(index).getAnswered()){
+                commentList.get(index).setAnswered(true);
+                return commentList.get(index);
+            }
+        } while (true);
     }
 }
