@@ -40,7 +40,7 @@
                 <%=obj_Post_Use_Bean.getMessage() %><br>
                 <%=obj_Post_Use_Bean.getCreated_time() %><br>
     <br>
-    <form action="javascript:void(0);" onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId() %> ", "<%=(String) request.getAttribute("token")%>")'>
+    <form action="javascript:void(0);" onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId()%>", "<%=(String) request.getAttribute("token")%>")'>
         <input type="submit" value="Get questions">
     </form>
     <hr>
