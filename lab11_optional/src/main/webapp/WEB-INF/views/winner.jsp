@@ -8,7 +8,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Comments</title>
-    <link
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            z-index: -1;
+            background: rgb(50,158,238);
+            background: linear-gradient(183deg, rgba(50,158,238,1) 13%, rgba(195,44,113,1) 80%, rgba(252,70,107,1) 97%);
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
 AND THE WINNER YOUR YOUR GIVEAWAY IS: <br><hr>

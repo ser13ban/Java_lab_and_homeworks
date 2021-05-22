@@ -14,6 +14,17 @@
         }
     </script>
     <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            z-index: -1;
+            background: rgb(50,158,238);
+            background: linear-gradient(183deg, rgba(50,158,238,1) 13%, rgba(195,44,113,1) 80%, rgba(252,70,107,1) 97%);
+            overflow: hidden;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
 
         .border {
             font-size: 1.6rem;
@@ -148,14 +159,40 @@
             animation-play-state: paused;
         }
 
+        .feature {
+            margin-bottom: 3%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            width: 60%;
+            background-color: #eee;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
+            transition: all 0.2s; }
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+        .cointainer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .header{
+            margin-bottom: 3%;
+            width: 80%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
+<div class="cointainer">
 
-
-
-<h1>
+<h1 class="header">
     This is the Q&A page you will have to chose one of your posts
 </h1>
     <br>
@@ -174,7 +211,7 @@
 
 
     %>
-    <div class="postCard border full-withradius">
+    <div class="feature">
         <h2>
                 <%=obj_Post_Use_Bean.getMessage() %>
         </h2>
@@ -193,5 +230,6 @@
             }
         }
     %>
+</div>
 </body>
 </html>

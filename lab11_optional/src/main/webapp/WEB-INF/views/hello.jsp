@@ -5,8 +5,19 @@
     <title>Facebook Login JavaScript Example</title>
     <meta charset="UTF-8">
     <style>
+
+        body{
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background: rgb(50,158,238);
+            background: linear-gradient(183deg, rgba(50,158,238,1) 13%, rgba(195,44,113,1) 80%, rgba(252,70,107,1) 97%);
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
         .purple {
-            color: #c32c71;
+            color: white;
         }
         .titles{
             margin-top: 5%;
@@ -30,9 +41,7 @@
             align-self: flex-end;
         }
 
-        body {
-            background-image: url('background.jpg');
-        }
+
 
         input {
             width: 200px;
@@ -245,7 +254,6 @@
         window.location.href = "/giveaway/" + token;
     }
 </script>
-
 
 <!-- The JS SDK Login Button -->
 <div id="loginButton">

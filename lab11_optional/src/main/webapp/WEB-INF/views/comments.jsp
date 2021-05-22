@@ -12,6 +12,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Comments</title>
     <style type="text/css">
+        body{
+            height: 100vh;
+            width: 100vw;
+            z-index: -1;
+            background: rgb(50,158,238);
+            background: linear-gradient(183deg, rgba(50,158,238,1) 13%, rgba(195,44,113,1) 80%, rgba(252,70,107,1) 97%);
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
+
         .boolean{
             width: 50px;
             height: 50px;
@@ -54,6 +65,17 @@
             transform: translateX(10px) rotate(-45deg);
             transform-origin: left bottom;
         }
+
+        .feature {
+            border-radius: 1rem;
+            width: 24rem;
+            height: 40rem;
+            background-color: #eee;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
+            transition: all 0.2s; }
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
 
     </style>
     <script type="application/javascript" defer>

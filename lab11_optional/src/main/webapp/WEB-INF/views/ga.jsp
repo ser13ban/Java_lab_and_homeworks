@@ -7,15 +7,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<body>
 <head>
     <script>
         function formHandler(ID, token) {
             //document.getElementById("link2").href = "/firstAPIcall?token=" + token + "?link="+fLink;
-            window.location.href="/giveaway/getWinner/" + ID + "/" + token;
+            window.location.href = "/giveaway/getWinner/" + ID + "/" + token;
         }
     </script>
     <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            z-index: -1;
+            background: rgb(50, 158, 238);
+            background: linear-gradient(183deg, rgba(50, 158, 238, 1) 13%, rgba(195, 44, 113, 1) 80%, rgba(252, 70, 107, 1) 97%);
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
         input {
             width: 200px;
             height: 70px;
@@ -134,18 +143,50 @@
             animation-play-state: paused;
         }
 
+        .feature {
+            margin-bottom: 3%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            width: 60%;
+            background-color: #eee;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
+            transition: all 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            margin-bottom: 3%;
+            width: 80%;
+            text-align: center;
+        }
     </style>
 </head>
+<body>
 
+<div class="container">
 
-<h2>
-    This is the GiveAway page, you will have to chose one of you posts and we will give you one winner from youre comments
-    <br>
-    <br>
-    <hr>
+    <h1 class="header">
+        This is the GiveAway page, you will have to chose one of you posts and we will give you one winner from youre
+        comments
+    </h1>
     <!-- In this page I want to display to the first 10-->
     <%
-        String token  = (String) request.getAttribute("token");
+        String token = (String) request.getAttribute("token");
         GetPostsService getGaPosts = new GetPostsService();
         List<Post> list_of_posts = getGaPosts.call_me_to_get_posts(token);
         list_of_posts = getGaPosts.getGiveAway(list_of_posts);
@@ -157,21 +198,27 @@
 
 
     %>
-    <%=obj_Post_Use_Bean.getMessage() %><br>
-    <%=obj_Post_Use_Bean.getCreated_time() %><br>
-    <br>
-    <form action="javascript:void(0);" onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId()%>", "<%=(String) request.getAttribute("token")%>")'>
-        <input type="submit" value="Get winner">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </form>
-    <hr>
+    <div class="feature">
+        <h2>
+            <%=obj_Post_Use_Bean.getMessage() %>
+        </h2>
+        <h2>
+            <%=obj_Post_Use_Bean.getCreated_time() %>
+        </h2>
+        <form action="javascript:void(0);"
+              onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId()%>", "<%=(String) request.getAttribute("token")%>")'>
+            <input type="submit" value="Get winner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </form>
+    </div>
     <%
             }
         }
     %>
-</h2>
+
+</div>
 </body>
 </html>
