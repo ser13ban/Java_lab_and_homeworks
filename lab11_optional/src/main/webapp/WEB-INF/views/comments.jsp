@@ -13,7 +13,7 @@
     <title>Comments</title>
     <style type="text/css">
         html{
-            height: 100%;
+
         }
         body {
             height: inherit;
@@ -100,14 +100,13 @@
 
         .container {
             display: flex;
-            width: 100%;
+            width: inherit;
             height: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
         }
-
 
         .header {
             margin-bottom: 3%;
@@ -137,7 +136,7 @@
 <div class="container">
 
 
-    <h1 class="header">THIS IS THE COMMENTS PAGE</h1>
+    <h1 class="header">THIS IS QUESTION PAGE</h1>
     <div class="flex-container">
         <%
             String token = (String) request.getAttribute("token");

@@ -41,7 +41,7 @@ public class GetPostsService {
             for (int count = 0; count < data_array.length(); count++) {
                 Post obj_Post = new Post();
                 obj_Post.setId(data_array.getJSONObject(count).getString("id"));
-                obj_Post.setCreated_time(data_array.getJSONObject(count).getString("created_time"));
+                obj_Post.setCreated_time(parseDate(data_array.getJSONObject(count).getString("created_time")));
                 try {
                     obj_Post.setStory(data_array.getJSONObject(count).getString("story"));
                 } catch (Exception e) {
@@ -77,6 +77,18 @@ public class GetPostsService {
         return posts.stream().filter(
                 p-> p.getMessage().toLowerCase(Locale.ROOT).contains("#giveaway")
         ).collect(Collectors.toList());
+    }
+
+    public static String parseDate(String str) {
+        StringBuilder result = new StringBuilder();
+        for(int i =0; i <10; i++)
+            result.append(str.charAt(i));
+        result.append(" ");
+        for(int i =11; i <19; i++)
+            result.append(str.charAt(i));
+
+        System.out.println(result.toString());
+        return result.toString();
     }
 }
 

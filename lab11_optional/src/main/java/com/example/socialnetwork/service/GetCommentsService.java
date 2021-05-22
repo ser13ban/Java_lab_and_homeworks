@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -42,7 +45,7 @@ public class GetCommentsService {
             JSONArray data_array = data_response.getJSONArray("data");
             for (int count = 0; count < data_array.length(); count++) {
                 Comment comment = new Comment();
-                comment.setCreated_time(data_array.getJSONObject(count).getString("created_time"));
+                comment.setCreated_time(parseDate(data_array.getJSONObject(count).getString("created_time")));
                 String from = data_array.getJSONObject(count).getString("from");
                 JSONObject from_response = new JSONObject(from.toString());
                 comment.setName(from_response.getString("name"));
@@ -58,6 +61,18 @@ public class GetCommentsService {
         }
 
         return commentList;
+    }
+
+    public static String parseDate(String str) {
+        StringBuilder result = new StringBuilder();
+        for(int i =0; i <10; i++)
+            result.append(str.charAt(i));
+        result.append(" ");
+        for(int i =11; i <19; i++)
+            result.append(str.charAt(i));
+
+        System.out.println(result.toString());
+        return result.toString();
     }
 
     public Comment getWinner(List<Comment> comments){
