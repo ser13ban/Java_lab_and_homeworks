@@ -35,6 +35,14 @@ public class HomeController {
         return model;
     }
 
+    @GetMapping("/qa/randomComment/{id}/{token}")
+    public ModelAndView randomComment(@PathVariable String id, @PathVariable String token) {
+        ModelAndView model = new ModelAndView("randomComment");
+        model.addObject("id", id);
+        model.addObject("token", token);
+        return model;
+    }
+
     @GetMapping("/giveaway/getWinner/{id}/{token}")
     public ModelAndView getWinner(@PathVariable String id, @PathVariable String token) {
         ModelAndView model = new ModelAndView("winner");
@@ -43,12 +51,5 @@ public class HomeController {
         return model;
     }
 
-    @GetMapping("/qa/comments/comment/{id}/{token}")
-    public ModelAndView comment(@PathVariable String id, @PathVariable String token) {
-        ModelAndView model = new ModelAndView("comment");
-        model.addObject("id", id);
-        model.addObject("token", token);
-        return model;
-    }
 
 }

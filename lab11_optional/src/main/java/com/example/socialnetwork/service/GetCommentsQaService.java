@@ -59,13 +59,13 @@ public class GetCommentsQaService {
     public List<Comment> filterVulgarity(List<Comment> commentList){
         return commentList.stream().filter(c -> hasCurseWord(c.getMessage())).collect(Collectors.toList());
     }
-    public Comment randomComment(List<Comment> commentList){
+    public Integer randomComment(List<Comment> commentList){
         do{
             Random rand = new Random();
             int index = rand.nextInt(commentList.size());
             if(!commentList.get(index).getAnswered()){
                 commentList.get(index).setAnswered(true);
-                return commentList.get(index);
+                return index;
             }
         } while (true);
     }
