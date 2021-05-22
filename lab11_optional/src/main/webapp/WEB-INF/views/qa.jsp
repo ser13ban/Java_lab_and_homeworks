@@ -17,37 +17,21 @@
         }
     </script>
     <style>
+        html{
+            height: 100%;
+        }
         body {
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
             z-index: -1;
             background: rgb(50, 158, 238);
             background: linear-gradient(183deg, rgba(50, 158, 238, 1) 13%, rgba(195, 44, 113, 1) 80%, rgba(252, 70, 107, 1) 97%);
-            overflow: hidden;
-            background-repeat: no-repeat;
-            overflow: hidden;
             background-repeat: no-repeat;
         }
 
-        .border {
-            font-size: 1.6rem;
-            display: grid;
-            place-items: center;
-            min-height: 200px;
-            border: 8px solid;
-            padding: 1rem;
-
-        }
-
-        .postCard {
-            display: flex;
-            flex-direction: column;
-            max-height: 25%;
-            margin-bottom: 5%;
-        }
 
         input {
-            width: 200px;
+            width: 250px;
             height: 70px;
             background: linear-gradient(to left top, #c32c71 50%, #b33771 50%);
             border-style: none;
@@ -165,6 +149,7 @@
         }
 
         .feature {
+
             margin-bottom: 3%;
             display: flex;
             flex-direction: column;
@@ -172,9 +157,11 @@
             align-items: center;
             border-radius: 1rem;
             width: 60%;
-            background-color: #eee;
             box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
             transition: all 0.2s;
+            background: rgb(181,217,218);
+            background: linear-gradient(183deg, rgba(181,217,218,1) 20%, rgba(196,161,179,1) 68%, rgba(128,164,166,1) 96%);
+
         }
 
         .feature:hover {
@@ -182,7 +169,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .cointainer {
+        .container {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -198,13 +185,24 @@
 
         .buttons{
             display: flex;
+            justify-content: space-around;
+            width: inherit;
+        }
+
+        @media screen and (max-width: 800px) {
+            .buttons{
+                flex-direction: column;
+            }
+            .firstButton{
+                margin-bottom: 10px;
+            }
         }
 
     </style>
 </head>
 <body>
 
-<div class="cointainer">
+<div class="container">
 
     <h1 class="header">
         This is the Q&A page you will have to chose one of your posts
@@ -233,7 +231,7 @@
             <%=obj_Post_Use_Bean.getCreated_time() %>
         </h2>
         <div class="buttons">
-            <form action="javascript:void(0);"
+            <form class="firstButton" action="javascript:void(0);"
                   onsubmit='formHandler( "<%=obj_Post_Use_Bean.getId()%>", "<%=(String) request.getAttribute("token")%>")'>
                 <input type="submit" value="Get questions">
                 <span></span>
@@ -241,6 +239,7 @@
                 <span></span>
                 <span></span>
             </form>
+
             <form action="javascript:void(0);"
                   onsubmit='formHandlerRandomQuestion( "<%=obj_Post_Use_Bean.getId()%>", "<%=(String) request.getAttribute("token")%>")'>
                 <input type="submit" value="Get one question">

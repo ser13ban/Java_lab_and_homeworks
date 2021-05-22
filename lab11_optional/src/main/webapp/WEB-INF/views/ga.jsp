@@ -15,13 +15,15 @@
         }
     </script>
     <style>
+        html{
+            height: 100%;
+        }
         body {
-            height: 100vh;
-            width: 100vw;
+            height: inherit;
+            width: 100%;
             z-index: -1;
             background: rgb(50, 158, 238);
             background: linear-gradient(183deg, rgba(50, 158, 238, 1) 13%, rgba(195, 44, 113, 1) 80%, rgba(252, 70, 107, 1) 97%);
-            overflow: hidden;
             background-repeat: no-repeat;
         }
 
@@ -151,9 +153,10 @@
             align-items: center;
             border-radius: 1rem;
             width: 60%;
-            background-color: #eee;
             box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
             transition: all 0.2s;
+            background: rgb(181,217,218);
+            background: linear-gradient(183deg, rgba(181,217,218,1) 20%, rgba(196,161,179,1) 68%, rgba(128,164,166,1) 96%);
         }
 
         .feature:hover {

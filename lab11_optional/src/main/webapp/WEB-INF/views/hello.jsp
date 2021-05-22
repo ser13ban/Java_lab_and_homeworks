@@ -192,8 +192,6 @@
             //I have to send the token to the java
             getRidOfLogInButton();
             token = response.authResponse.accessToken;
-            //add it to the session
-
             console.log(token);
 
 
