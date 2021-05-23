@@ -13,7 +13,7 @@
     <title>Comments</title>
     <style type="text/css">
         html{
-
+            height: 100%;
         }
         body {
             height: inherit;
